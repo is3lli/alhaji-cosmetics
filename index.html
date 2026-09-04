@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كوزمتك الحجي | Beauty • Cosmetics</title>
+<meta name="description" content="كوزمتك الحجي — أكثر من 15 سنة ثقة وخبرة. أصلي، بأنسب الأسعار، ويوصلك لباب بيتك. تابعنا على إنستغرام، واتساب، وتيليجرام.">
+<meta property="og:title" content="كوزمتك الحجي | ALHAJI Beauty • Cosmetics ✨">
+<meta property="og:description" content="أكثر من 15 سنة ثقة وخبرة 💎 أصلي • بأنسب الأسعار • يوصلك لباب بيتك 🚚">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FAF7F2" id="metaTheme">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Cinzel:wght@600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ Design Tokens ============ */
+:root{
+  --olive:#7A8864; --olive-deep:#5E6A4F; --olive-soft:#8A977A;
+  --dusty:#A9BDD1; --stone:#C8C0B5; --champagne:#E5D5BC; --bisque:#E5BCA9; --ivory:#FAF7F2;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+html[data-theme="light"]{
+  --bg:#FAF7F2; --bg-grad-a:rgba(169,189,209,.5); --bg-grad-b:rgba(229,188,169,.42); --bg-grad-c:rgba(229,213,188,.5);
+  --surface:rgba(255,255,255,.62); --surface-2:rgba(255,255,255,.9);
+  --border:rgba(163,148,127,.28); --border-hover:rgba(185,150,115,.5);
+  --text:#322E27; --text-2:rgba(50,46,39,.6);
+  --name-g1:#63584A; --name-g2:#B08968; --name-g3:#64798F;
+  --card-shadow:0 12px 32px -14px rgba(140,120,95,.32);
+  --card-shadow-hover:0 22px 44px -16px rgba(140,120,95,.42);
+  --glow:rgba(229,188,169,.4); --pill-active-bg:#A9BDD1; --pill-active-fg:#2F3527;
+  --shine:rgba(255,255,255,.55); --sparkle-op:.55;
+}
+html[data-theme="dark"]{
+  --bg:#171412; --bg-grad-a:rgba(169,189,209,.13); --bg-grad-b:rgba(229,188,169,.12); --bg-grad-c:rgba(229,213,188,.12);
+  --surface:rgba(250,247,242,.055); --surface-2:rgba(250,247,242,.1);
+  --border:rgba(250,247,242,.11); --border-hover:rgba(229,213,188,.38);
+  --text:#F1EDE3; --text-2:rgba(241,237,227,.58);
+  --name-g1:#E5D5BC; --name-g2:#E5BCA9; --name-g3:#A9BDD1;
+  --card-shadow:0 16px 36px -16px rgba(0,0,0,.65);
+  --card-shadow-hover:0 24px 48px -18px rgba(0,0,0,.75);
+  --glow:rgba(229,213,188,.18); --pill-active-bg:#E5D5BC; --pill-active-fg:#2F3527;
+  --shine:rgba(250,247,242,.13); --sparkle-op:.4;
+}
+/* ============ Base ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo','Noto Sans Arabic',system-ui,-apple-system,sans-serif;
+  background:var(--bg); color:var(--text); min-height:100svh;
+  display:flex; flex-direction:column; align-items:center;
+  overflow-x:hidden;
+  transition:background-color .5s ease,color .5s ease;
+  animation:pageIn .8s var(--ease-out) both;
+}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+::selection{background:rgba(169,189,209,.5)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;color:inherit;background:none;border:none;cursor:pointer}
+svg{display:block}
+/* ============ Ambient Scene ============ */
+.scene{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);will-change:transform;transition:opacity .6s ease}
+.blob-a{width:64vmax;height:64vmax;top:-24vmax;inset-inline-start:-20vmax;background:var(--bg-grad-a);animation:driftA 26s ease-in-out infinite alternate}
+.blob-b{width:58vmax;height:58vmax;bottom:-22vmax;inset-inline-end:-18vmax;background:var(--bg-grad-b);animation:driftB 31s ease-in-out infinite alternate}
+.blob-c{width:44vmax;height:44vmax;top:36%;inset-inline-start:32%;background:var(--bg-grad-c);animation:driftC 38s ease-in-out infinite alternate}
+@keyframes driftA{from{transform:translate(0,0) scale(1)}to{transform:translate(9vmax,7vmax) scale(1.15)}}
+@keyframes driftB{from{transform:translate(0,0) scale(1.1)}to{transform:translate(-8vmax,-6vmax) scale(.95)}}
+@keyframes driftC{from{transform:translate(-4vmax,0) scale(.9)}to{transform:translate(5vmax,-5vmax) scale(1.12)}}
+.sparkles{position:absolute;inset:0}
+.spark{position:absolute;color:var(--champagne);opacity:0;animation:twinkle var(--sdur,7s) ease-in-out var(--sdel,0s) infinite}
+@keyframes twinkle{
+  0%,100%{opacity:0;transform:translateY(0) scale(.5) rotate(0deg)}
+  50%{opacity:var(--sparkle-op);transform:translateY(-26px) scale(1) rotate(180deg)}
+}
+/* ============ Topbar ============ */
+.topbar{
+  position:fixed;top:0;inset-inline:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:calc(14px + env(safe-area-inset-top)) clamp(14px,4vw,22px) 0;
+}
+.lang-pill{
+  display:flex;gap:2px;padding:4px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--border);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 6px 18px -10px rgba(120,105,85,.28);
+  transition:background-color .5s ease,border-color .5s ease;
+}
+.lang-btn{
+  min-height:36px;padding:4px 13px;border-radius:999px;
+  font-size:.82rem;font-weight:700;letter-spacing:.02em;color:var(--text-2);
+  transition:color .3s ease,background-color .35s ease,transform .2s var(--ease-out);
+}
+.lang-btn:active{transform:scale(.93)}
+.lang-btn.active{background:var(--pill-active-bg);color:var(--pill-active-fg);box-shadow:0 4px 12px -4px rgba(120,105,85,.5)}
+.theme-btn{
+  width:44px;height:44px;border-radius:50%;position:relative;
+  background:var(--surface);border:1px solid var(--border);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 6px 18px -10px rgba(120,105,85,.28);
+  transition:background-color .5s ease,border-color .5s ease,transform .3s var(--ease-out);
+}
+.theme-btn:active{transform:scale(.9) rotate(-14deg)}
+.theme-btn svg{position:absolute;inset:0;margin:auto;width:20px;height:20px;transition:opacity .45s ease,transform .55s var(--ease-out)}
+.ic-moon{opacity:0;transform:rotate(-90deg) scale(.4);color:var(--champagne)}
+.ic-sun{opacity:1;transform:rotate(0) scale(1);color:#C98A4B}
+html[data-theme="dark"] .ic-moon{opacity:1;transform:rotate(0) scale(1)}
+html[data-theme="dark"] .ic-sun{opacity:0;transform:rotate(90deg) scale(.4)}
+/* ============ Layout ============ */
+.wrap{
+  position:relative;z-index:1;width:100%;max-width:520px;
+  padding:calc(92px + env(safe-area-inset-top)) 22px 26px;
+  display:flex;flex-direction:column;align-items:center;
+  transition:opacity .24s ease,transform .24s ease;
+}
+.wrap.switching{opacity:0;transform:translateY(10px)}
+/* ============ Profile ============ */
+.profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+.avatar{position:relative;width:128px;height:128px;margin-bottom:20px;animation:floatY 6.5s ease-in-out infinite alternate}
+@keyframes floatY{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+.avatar-ring{
+  position:absolute;inset:-5px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--champagne),var(--dusty),var(--bisque),var(--stone),var(--champagne));
+  animation:ringspin 9s linear infinite;
+}
+@keyframes ringspin{to{transform:rotate(360deg)}}
+.avatar-core{position:absolute;inset:0;border-radius:50%;background:var(--bg);display:grid;place-items:center;transition:background-color .5s ease}
+.avatar-img{
+  width:112px;height:112px;border-radius:50%;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(160deg,#C4E9FC 0%,#8FD6F9 100%);
+  box-shadow:0 10px 28px -8px var(--glow),inset 0 2px 8px rgba(255,255,255,.2);
+}
+.avatar-img img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.avatar-glow{position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,transparent 65%);z-index:-1;animation:pulseGlow 4s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+.name{
+  font-size:clamp(1.75rem,7.5vw,2.3rem);font-weight:900;line-height:1.25;letter-spacing:-.01em;
+  background:linear-gradient(90deg,var(--name-g1),var(--name-g2),var(--name-g3),var(--name-g2),var(--name-g1));
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:sheen 7s ease-in-out infinite;
+}
+@keyframes sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.tagline{
+  font-family:'Cinzel','Cairo',serif;font-size:clamp(.72rem,2.9vw,.86rem);font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--text-2);margin-top:9px;
+}
+.handle{font-size:.85rem;font-weight:600;color:var(--text-2);opacity:.75;margin-top:5px;letter-spacing:.03em;direction:ltr}
+.bio{font-size:clamp(.95rem,3.8vw,1.08rem);font-weight:700;margin-top:14px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;
+  font-size:.8rem;font-weight:700;color:var(--text);
+  background:var(--surface);border:1px solid var(--border);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:transform .3s var(--ease-out),background-color .5s ease,border-color .5s ease;
+}
+@media(hover:hover){.chip:hover{transform:translateY(-3px)}}
+.chip svg{width:13px;height:13px;color:#B08A64;flex:none}
+html[data-theme="dark"] .chip svg{color:var(--champagne)}
+/* ============ CTA ============ */
+.cta{
+  display:flex;align-items:center;gap:8px;margin:26px 0 16px;
+  font-size:1rem;font-weight:800;color:var(--text);
+}
+/* ============ Link Cards ============ */
+.links{width:100%;display:grid;gap:14px}
+.card{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;gap:14px;
+  padding:15px 17px;border-radius:22px;
+  background:var(--surface);border:1px solid var(--border);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--card-shadow);
+  transition:transform .38s var(--ease-out),box-shadow .38s ease,border-color .38s ease,background-color .5s ease;
+}
+@media(hover:hover){
+  .card:hover{transform:translateY(-4px);border-color:var(--border-hover);box-shadow:var(--card-shadow-hover)}
+  .card:hover .card-ic{transform:scale(1.1) rotate(-5deg)}
+  .card:hover .card-go{transform:translate(3px,-3px);color:#A0785A}
+  html[data-theme="dark"] .card:hover .card-go{color:var(--champagne)}
+}
+.card:active{transform:scale(.975)}
+.card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,transparent 32%,var(--shine) 50%,transparent 68%);
+  transform:translateX(-140%);transition:transform .9s ease;
+}
+.card:hover::after{transform:translateX(140%)}
+.card-ic{
+  width:48px;height:48px;flex:none;border-radius:15px;display:grid;place-items:center;color:#fff;
+  box-shadow:0 8px 18px -6px rgba(47,53,39,.35),inset 0 1px 2px rgba(255,255,255,.32);
+  transition:transform .4s var(--ease-out);
+}
+.card-ic svg{width:23px;height:23px}
+.ic-instagram{background:linear-gradient(135deg,#E5BCA9 0%,#CE8E6E 55%,#B9746B 100%)}
+.ic-whatsapp{background:linear-gradient(135deg,#9CAB89 0%,#6E7D5F 100%)}
+.ic-telegram{background:linear-gradient(135deg,#B4C6D8 0%,#7E96AD 100%)}
+.ic-phone{background:linear-gradient(135deg,#C8B59A 0%,#97866C 100%)}
+.card-tx{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.card-t{font-size:.98rem;font-weight:800;line-height:1.4}
+.card-s{font-size:.8rem;font-weight:600;color:var(--text-2);line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-go{width:20px;height:20px;flex:none;color:var(--text-2);opacity:.65;transition:transform .35s var(--ease-out),color .3s ease}
+.num{direction:ltr;unicode-bidi:isolate;align-self:flex-start;max-width:100%}
+/* ============ Footer ============ */
+.foot{
+  position:relative;z-index:1;margin-top:auto;
+  padding:30px 20px calc(20px + env(safe-area-inset-bottom));
+  text-align:center;
+}
+.sig{font-size:.78rem;font-weight:600;color:var(--text-2);letter-spacing:.04em}
+.sig a{
+  color:#7C8FA6;font-weight:800;border-bottom:1px dashed rgba(124,143,166,.5);
+  padding-bottom:1px;transition:color .3s ease,border-color .3s ease;
+}
+html[data-theme="dark"] .sig a{color:var(--champagne)}
+.sig a:hover{border-bottom-style:solid}
+/* ============ Entrance Reveals ============ */
+.reveal{opacity:0;animation:fadeUp .85s var(--ease-out) var(--d,0s) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+/* ============ Reduced Motion ============ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .reveal{opacity:1}
+  .spark{display:none}
+}
+</style>
+</head>
+<body>
+<div class="scene" aria-hidden="true">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+  <div class="sparkles" id="sparkles"></div>
+</div>
+
+<header class="topbar">
+  <div class="lang-pill" role="group" aria-label="Language / اللغة">
+    <button class="lang-btn active" data-lang="ar" type="button" aria-label="العربية">عربي</button>
+    <button class="lang-btn" data-lang="ku" type="button" aria-label="کوردی">کوردی</button>
+    <button class="lang-btn" data-lang="en" type="button" aria-label="English">EN</button>
+  </div>
+  <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle theme">
+    <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2.5v2.2M12 19.3v2.2M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6"/>
+    </svg>
+    <svg class="ic-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+    </svg>
+  </button>
+</header>
+
+<main class="wrap" id="main">
+  <section class="profile">
+    <div class="avatar reveal" style="--d:.05s">
+      <div class="avatar-glow"></div>
+      <div class="avatar-ring"></div>
+      <div class="avatar-core">
+        <div class="avatar-img">
+          <img src="logo.png" alt="ALHAJI Cosmetics" width="112" height="112">
+        </div>
+      </div>
+    </div>
+    <h1 class="name reveal" style="--d:.14s" data-i18n="name">كوزمتك الحجي</h1>
+    <p class="tagline reveal" style="--d:.2s" data-i18n="tagline">ALHAJI | Beauty • Cosmetics ✨</p>
+    <p class="handle reveal" style="--d:.26s">@alhaji.cosmetics</p>
+    <p class="bio reveal" style="--d:.32s" data-i18n="bio">أكثر من 15 سنة ثقة وخبرة 💎</p>
+    <div class="chips reveal" style="--d:.38s">
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span data-i18n="chip1">أصلي 100%</span>
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span data-i18n="chip2">بأنسب الأسعار</span>
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span data-i18n="chip3">يوصلك لباب بيتك 🚚</span>
+      </span>
+    </div>
+  </section>
+
+  <p class="cta reveal" style="--d:.46s">
+    <span data-i18n="cta">للتواصل والحجز</span>
+  </p>
+
+  <nav class="links" aria-label="روابطنا">
+    <a class="card reveal" style="--d:.54s" href="https://www.instagram.com/alhaji.cosmetics?igsi=djdxaDJ5aThrczk2" target="_blank" rel="noopener noreferrer">
+      <span class="card-ic ic-instagram" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5.2"/>
+          <circle cx="12" cy="12" r="4.1"/>
+          <circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <span class="card-tx">
+        <span class="card-t" data-i18n="in_t">إنستغرام</span>
+        <span class="card-s" data-i18n="in_s">تابعنا على إنستغرام</span>
+      </span>
+      <svg class="card-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="card reveal" style="--d:.62s" href="https://wa.me/qr/G3BQZS3TW55ED1" target="_blank" rel="noopener noreferrer">
+      <span class="card-ic ic-whatsapp" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </span>
+      <span class="card-tx">
+        <span class="card-t" data-i18n="wa_t">واتساب</span>
+        <span class="card-s" data-i18n="wa_s">راسلنا واتساب</span>
+      </span>
+      <svg class="card-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="card reveal" style="--d:.7s" href="tel:+9647838134958">
+      <span class="card-ic ic-phone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      <span class="card-tx">
+        <span class="card-t" data-i18n="ph_t">للاتصال</span>
+        <span class="card-s num">07838134958</span>
+      </span>
+      <svg class="card-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="card reveal" style="--d:.78s" href="https://t.me/alhaji_cosmetics" target="_blank" rel="noopener noreferrer">
+      <span class="card-ic ic-telegram" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+      </span>
+      <span class="card-tx">
+        <span class="card-t" data-i18n="tg_t">تيليجرام</span>
+        <span class="card-s" data-i18n="tg_s">تابع قناتنا على تيليجرام</span>
+      </span>
+      <svg class="card-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
+  </nav>
+</main>
+
+<footer class="foot">
+  <p class="sig reveal" style="--d:.9s">Created by <a href="https://instagram.com/io91t" target="_blank" rel="noopener noreferrer">@io91t</a> <span class="sig-heart" aria-hidden="true">✦</span></p>
+</footer>
+<script>
+(function(){
+"use strict";
+/* ================= i18n ================= */
+var I18N = {
+  ar: {
+    _dir:"rtl", _lang:"ar", _title:"كوزمتك الحجي | Beauty • Cosmetics",
+    name:"كوزمتك الحجي",
+    tagline:"ALHAJI | Beauty • Cosmetics ✨",
+    bio:"أكثر من 15 سنة ثقة وخبرة 💎",
+    chip1:"أصلي 100%", chip2:"بأنسب الأسعار", chip3:"يوصلك لباب بيتك 🚚",
+    cta:"للتواصل والحجز",
+    in_t:"إنستغرام", in_s:"تابعنا على إنستغرام",
+    wa_t:"واتساب",   wa_s:"راسلنا واتساب",
+    ph_t:"للاتصال",
+    tg_t:"تيليجرام", tg_s:"تابع قناتنا على تيليجرام",
+    _nav:"روابطنا"
+  },
+  ku: {
+    _dir:"rtl", _lang:"ckb", _title:"کۆسمەتیک الحجي | Beauty • Cosmetics",
+    name:"کۆسمەتیک الحجي",
+    tagline:"ALHAJI | جوانی • کۆسمەتیک ✨",
+    bio:"زیاتر لە ١٥ ساڵ متمانە و ئەزموون 💎",
+    chip1:"ڕەسەن ١٠٠٪", chip2:"بە هەرزانترین نرخ", chip3:"دەگاتە دەرگای ماڵەکەت 🚚",
+    cta:"بۆ پەیوەندی و حجز",
+    in_t:"ئینستاگرام", in_s:"بەدوامان بکەوە لە ئینستاگرام",
+    wa_t:"واتساپ",    wa_s:"پەیوەندیمان پێوە بکە لە واتساپ",
+    ph_t:"بۆ پەیوەندی",
+    tg_t:"تێلێگرام",  tg_s:"سەردانی کەناڵەکەمان بکە",
+    _nav:"بەستەرەکەمان"
+  },
+  en: {
+    _dir:"ltr", _lang:"en", _title:"ALHAJI Cosmetics | Beauty • Cosmetics",
+    name:"ALHAJI Cosmetics",
+    tagline:"ALHAJI | Beauty • Cosmetics ✨",
+    bio:"Over 15 years of trust & experience 💎",
+    chip1:"100% Authentic", chip2:"Best Prices", chip3:"Delivered to Your Door 🚚",
+    cta:"Contact & Booking",
+    in_t:"Instagram", in_s:"Follow us on Instagram",
+    wa_t:"WhatsApp",  wa_s:"Chat with us anytime",
+    ph_t:"Call Now",
+    tg_t:"Telegram",  tg_s:"Join our channel",
+    _nav:"Our links"
+  }
+};
+/* ================= Helpers ================= */
+var $  = function(s){ return document.querySelector(s); };
+var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+function read(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+/* ================= Theme ================= */
+var themeBtn = $("#themeBtn");
+var metaTheme = $("#metaTheme");
+var THEME_META = { light:"#FAF7F2", dark:"#171412" };
+function applyTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  if(metaTheme) metaTheme.setAttribute("content", THEME_META[t] || "#FAF7F2");
+  themeBtn.setAttribute("aria-label", t === "dark" ? "Light mode" : "Dark mode");
+}
+function initTheme(){
+  var saved = read("alhaji_theme");
+  var sysDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved || (sysDark ? "dark" : "light"));
+}
+themeBtn.addEventListener("click", function(){
+  var cur = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  applyTheme(cur); store("alhaji_theme", cur);
+});
+/* ================= Language ================= */
+var wrap = $("#main");
+function applyLang(code){
+  var d = I18N[code]; if(!d) return;
+  var html = document.documentElement;
+  html.setAttribute("dir", d._dir);
+  html.setAttribute("lang", d._lang);
+  document.title = d._title;
+  $$("[data-i18n]").forEach(function(el){
+    var k = el.getAttribute("data-i18n");
+    if(d[k] != null) el.textContent = d[k];
+  });
+  var nav = $(".links");
+  if(nav) nav.setAttribute("aria-label", d._nav);
+  $$(".lang-btn").forEach(function(b){
+    b.classList.toggle("active", b.getAttribute("data-lang") === code);
+  });
+}
+function setLang(code, animate){
+  if(!I18N[code]) return;
+  store("alhaji_lang", code);
+  if(!animate){ applyLang(code); return; }
+  wrap.classList.add("switching");
+  setTimeout(function(){
+    applyLang(code);
+    wrap.classList.remove("switching");
+  }, 240);
+}
+$$(".lang-btn").forEach(function(b){
+  b.addEventListener("click", function(){
+    var l = b.getAttribute("data-lang");
+    if(!b.classList.contains("active")) setLang(l, true);
+  });
+});
+function initLang(){
+  var saved = read("alhaji_lang");
+  applyLang(I18N[saved] ? saved : "ar");
+}
+/* ================= Sparkles ================= */
+function initSparkles(){
+  var box = $("#sparkles"); if(!box) return;
+  var colors = ["#E5D5BC","#E5BCA9","#A9BDD1","#C8C0B5"];
+  var n = window.innerWidth < 480 ? 10 : 16;
+  for(var i=0;i<n;i++){
+    var s = document.createElement("span");
+    s.className = "spark";
+    var size = 6 + Math.random()*9;
+    s.textContent = "✦";
+    s.style.left = (Math.random()*96) + "%";
+    s.style.top  = (Math.random()*96) + "%";
+    s.style.fontSize = size + "px";
+    s.style.color = colors[i % colors.length];
+    s.style.setProperty("--sdur", (5 + Math.random()*6).toFixed(2) + "s");
+    s.style.setProperty("--sdel", (Math.random()*7).toFixed(2) + "s");
+    s.style.opacity = "0";
+    box.appendChild(s);
+  }
+}
+/* ================= Init ================= */
+initTheme();
+initLang();
+initSparkles();
+})();
+</script>
+</body>
+</html>
